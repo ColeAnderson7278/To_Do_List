@@ -1,6 +1,7 @@
+var source = document.querySelector("#listTemplate").innerHTML;
+var template = Handlebars.compile(source);
+
 function makingPendingList() {
-    var source = document.querySelector("#listTemplate").innerHTML;
-    var template = Handlebars.compile(source);
     for (project of PAGE_DATA.projects) {
         if (project.status === "Pending") {
             var html = template({
@@ -54,11 +55,30 @@ function statusNumber() {
             cancelled += 1;
         }
     }
-    document.querySelector("#pendingNum").innerHTML = `Pending: ${pending}`;
-    document.querySelector("#doneNum").innerHTML = `Done: ${done}`;
-    document.querySelector(
-        "#cancelledNum"
-    ).innerHTML = `Cancelled: ${cancelled}`;
+    document.querySelector("#pendingNum").innerHTML = pending;
+    document.querySelector("#doneNum").innerHTML = done;
+    document.querySelector("#cancelledNum").innerHTML = cancelled;
 }
 
 statusNumber();
+
+function makeProject(event) {
+    event.preventDefault();
+    var input = event.target.todoInput.value;
+    var today = new Date();
+    console.log(input);
+    newProject = template({
+        name: input,
+        status: "Pending",
+        dateAdded: `${today.getMonth() +
+            1}-${today.getDate()}-${today.getYear() + 1900}`
+    });
+    PAGE_DATA.projects.push(newProject);
+    document
+        .querySelector(".pendingListLocation")
+        .insertAdjacentHTML("beforeend", newProject);
+    document.querySelector("#pendingNum").innerHTML =
+        Number(document.querySelector("#pendingNum").innerHTML) + 1;
+}
+
+document.forms.toDoForm.addEventListener("submit", makeProject);

@@ -17,16 +17,22 @@
     </div>
     <div>
         <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control border-success mr-sm-2" type="search" placeholder="What to do...">
+            <form name="toDoForm" class="form-inline">
+                <input name="todoInput" class="form-control border-success mr-sm-2" minlength="1" type="text" placeholder="What to do...">
                 <button class="btn btn-success my-2 my-sm-0" type="submit">To-Do</button>
             </form>
             <div class="card p-2">
                 <h4>Statistics:</h4>
                 <div class="d-flex p-1">
-                    <h5 id="pendingNum" class="text-primary"></h5>
-                    <h5 id="doneNum" class="text-success ml-2"></h5>
-                    <h5 id="cancelledNum" class="text-danger ml-2"></h5>
+                    <h5 class="text-primary d-flex">Pending:
+                        <p id="pendingNum"></p>
+                    </h5>
+                    <h5 class="text-success ml-2 d-flex">Done:
+                        <p id="doneNum"></p>
+                    </h5>
+                    <h5 class="text-danger ml-2 d-flex">Cancelled:
+                        <p id="cancelledNum"></p>
+                    </h5>
                 </div>
             </div>
         </nav>
