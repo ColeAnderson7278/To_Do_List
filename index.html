@@ -34,38 +34,35 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-primary">To-Do:</h3>
-                    <p class="card-text">
-                        <ul>
-                            <li>Stuff</li>
-                            <li>Stuff</li>
-                        </ul>
-                    </p>
+                    <div class="pendingListLocation card-text">
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-success">Completed:</h3>
-                    <p class="card-text">
-                        <ul>
-                            <li>Stuff</li>
-                            <li>Stuff</li>
-                        </ul>
-                    </p>
+                    <div class="doneListLocation card-text">
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-danger">Cancelled:</h3>
-                    <p class="card-text">
-                        <ul>
-                            <li>Stuff</li>
-                            <li>Stuff</li>
-                        </ul>
-                    </p>
+                    <div class="cancelledListLocation card-text">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script id="listTemplate" type="text/x-handlebars-template">
+        <div class="entry pl-3 pb-4">
+            <li>
+            <h4>{{name}}</h4>
+            <h5>Status: {{status}}</h5>
+            <h5>Date Added: {{dateAdded}}</h5>
+        </li>
+        </div>
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
         crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 "
