@@ -40,3 +40,25 @@ function makingPendingList() {
 }
 
 makingPendingList();
+
+function statusNumber() {
+    var pending = 0;
+    var done = 0;
+    var cancelled = 0;
+    for (project of PAGE_DATA.projects) {
+        if (project.status === "Pending") {
+            pending += 1;
+        } else if (project.status === "Done") {
+            done += 1;
+        } else if (project.status === "Cancelled") {
+            cancelled += 1;
+        }
+    }
+    document.querySelector("#pendingNum").innerHTML = `Pending: ${pending}`;
+    document.querySelector("#doneNum").innerHTML = `Done: ${done}`;
+    document.querySelector(
+        "#cancelledNum"
+    ).innerHTML = `Cancelled: ${cancelled}`;
+}
+
+statusNumber();
